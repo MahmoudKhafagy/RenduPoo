@@ -43,7 +43,20 @@ class Str
         $this->string= lcfirst($this->string);
         return $this;
     }
-    // Exo 1.5 et Exo 2.5
+
+    public function pregReplace($pattern,$replace)
+    {
+        $this->string= preg_replace($pattern,$replace,$this->string);
+        return$this;
+    }
+
+    public function mbStrtolower()
+    {
+        $this->string= mb_strtolower($this->string);
+        return $this;
+    }
+
+    // camelCase   Exo 1.5 et Exo 2.5
     public function camelCase()
     {
         return $this->replace('_',' ')->replace('-',' ')->ucwords()->replace(' ','')->lcfirst();
@@ -53,21 +66,29 @@ class Str
         return $this->string;
     }
 
+    //snakeCase exercice 3
 
-    //EXO
-    public function mbStrtolower()
-
-    {
-        $this->string= mb_strtolower($this->string);
-        return $this;
-    }
     public function SnakeCase()
     {
-          $this->replace('-','_')->replace(' ','_')->replace('','_')->mbStrtolower();
-    return $this;
-    }
-    //exercice 4
+        return $this
+            ->replace(' ','_')
+            ->replace('-','_')
+            ->pregReplace('/(.)(?=[A-Z])/','$1_')
+            ->mbStrtolower()
+            ->replace('__','_');
 
+    }
+
+    // SlugCase Exercice 4
+    public function SlugCase()
+    {
+       return $this
+           ->replace('_','-')
+           ->pregReplace('/(.)(?=[A-Z])/','$1-')
+           ->mbStrtolower()
+           ->replace(' ','-')
+           ->replace('--','-');
+    }
 
 
 }

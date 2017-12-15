@@ -4,6 +4,7 @@ use Strings\Str;
 
 class StrTest extends TestCase
 {
+    //    EXERCICE 1
 
     public function testExo1()
     {
@@ -16,6 +17,7 @@ class StrTest extends TestCase
         dump($string);
     }
 
+    //   camelCase EXERCICE 1_5
     public function testExo1_5()
     {
         $this->assertTrue(Str::on('my_string')
@@ -23,6 +25,7 @@ class StrTest extends TestCase
                 ->toString() === 'myString'); // true
     }
 
+    //   camelCase EXERCICE 2
     public function testExo2()
     {
         $this->assertTrue(Str::on('my_string')->camelCase()->toString() === 'myString'); // true
@@ -31,13 +34,29 @@ class StrTest extends TestCase
         $this->assertTrue(Str::on('my string')->camelCase()->toString() === 'myString'); // true
         $this->assertTrue(Str::on('My String')->camelCase()->toString() === 'myString'); // true
     }
+
+
+    //   snakeCase EXERCICE 3
+
     public function testExo3()
     {
-        $this->assertSame(Str::on('my_string')->SnakeCase()->toString() , 'my_string'); // true
-        $this->assertSame(Str::on('myString')->SnakeCase()->toString() , 'my_string'); // true
-        $this->assertSame(Str::on('my-string')->SnakeCase()->toString()  , 'my_string'); // true
-        $this->assertSame(Str::on('my string')->SnakeCase()->toString()  , 'my_string'); // true
-        $this->assertSame(Str::on('My String')->SnakeCase()->toString()  , 'my_string'); // true
-        dump($this->toString());
+
+        $this->assertSame('my_string', Str::on('my_string')->snakeCase()->toString()); // true
+        $this->assertSame('my_string', Str::on('myString')->snakeCase()->toString()); // true
+        $this->assertSame('my_string', Str::on('my-string')->snakeCase()->toString()); // true
+        $this->assertSame('my_string', Str::on('my string')->snakeCase()->toString()); // true
+        $this->assertSame('my_string', Str::on('My String')->snakeCase()->toString()); // true
     }
+
+
+
+    public function testExo4()
+    {
+        $this->assertSame(Str::on('my_string')->SlugCase()->toString()  , 'my-string'); // true
+        $this->assertSame(Str::on('myString') ->SlugCase()->toString() , 'my-string') ; // true
+        $this->assertEquals(Str::on('my-string')->SlugCase()->toString()  , 'my-string'); // true
+        $this->assertEquals(Str::on('my string')->SlugCase()->toString()  , 'my-string'); // true
+        $this->assertEquals(Str::on('My String')->SlugCase()->toString()  , 'my-string'); // true
+    }
+
 }

@@ -1,0 +1,14 @@
+{
+    "name": "khafagy/exercice",
+    "description": "",
+    "type": "project",
+    "require": {
+        "phpunit/phpunit": "^6.5",
+        "symfony/var-dumper": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Strings\\": "src/"
+        }
+    }
+}
