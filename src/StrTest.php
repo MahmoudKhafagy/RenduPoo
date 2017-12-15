@@ -15,7 +15,7 @@ class StrTest extends TestCase
         $this->assertSame('myString',$string);
         dump($string);
     }
-    
+
     public function testExo1_5()
     {
         $this->assertTrue(Str::on('my_string')
@@ -31,7 +31,13 @@ class StrTest extends TestCase
         $this->assertTrue(Str::on('my string')->camelCase()->toString() === 'myString'); // true
         $this->assertTrue(Str::on('My String')->camelCase()->toString() === 'myString'); // true
     }
-
-
-
+    public function testExo3()
+    {
+        $this->assertSame(Str::on('my_string')->SnakeCase()->toString() , 'my_string'); // true
+        $this->assertSame(Str::on('myString')->SnakeCase()->toString() , 'my_string'); // true
+        $this->assertSame(Str::on('my-string')->SnakeCase()->toString()  , 'my_string'); // true
+        $this->assertSame(Str::on('my string')->SnakeCase()->toString()  , 'my_string'); // true
+        $this->assertSame(Str::on('My String')->SnakeCase()->toString()  , 'my_string'); // true
+        dump($this->toString());
+    }
 }

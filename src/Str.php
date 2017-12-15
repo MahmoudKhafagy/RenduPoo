@@ -44,7 +44,7 @@ class Str
         return $this;
     }
     // Exo 1.5 et Exo 2.5
-    public function camelCse()
+    public function camelCase()
     {
         return $this->replace('_',' ')->replace('-',' ')->ucwords()->replace(' ','')->lcfirst();
     }
@@ -53,11 +53,21 @@ class Str
         return $this->string;
     }
 
-    //Exo 3
+
+    //EXO
+    public function mbStrtolower()
+
+    {
+        $this->string= mb_strtolower($this->string);
+        return $this;
+    }
     public function SnakeCase()
     {
-
+          $this->replace('-','_')->replace(' ','_')->replace('','_')->mbStrtolower();
+    return $this;
     }
+    //exercice 4
+
 
 
 }
