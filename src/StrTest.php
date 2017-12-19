@@ -108,5 +108,19 @@ class StrTest extends TestCase
         (string) $str === 'mY StrIng'; // true
     }
 
+    // Exercice 7 magic method
+
+    public function testExo7()
+    {
+        $str = str('mY StrIng');
+        $str->camelCase === 'myString'; // true
+        $str->snakeCase === 'my_string'; // true
+        $str->studlyCase === 'MyString'; // true
+        $str->titleCase === 'MyString'; // true
+        $str->slugCase === 'my-string'; // true
+        $str->kebabCase === 'my-string'; // true
+        $str() === 'mY StrIng'; // true
+    }
+
 
 }

@@ -122,5 +122,11 @@ class Str
             ->replace(' ', '');
     }
 
+    // Exercice 7
+
+     public function __invoke()
+     {
+
+     }
 
 }
