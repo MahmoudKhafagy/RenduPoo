@@ -49,7 +49,7 @@ class StrTest extends TestCase
     }
 
 
-
+    // SlugCase Exercice 4
     public function testExo4()
     {
         $this->assertSame(Str::on('my_string')->SlugCase()->toString()  , 'my-string'); // true
@@ -58,5 +58,19 @@ class StrTest extends TestCase
         $this->assertEquals(Str::on('my string')->SlugCase()->toString()  , 'my-string'); // true
         $this->assertEquals(Str::on('My String')->SlugCase()->toString()  , 'my-string'); // true
     }
+
+    // studlyCase Exercice 5
+
+    public function testExo5()
+    {
+        $this->assertSame(Str::on('my_string')->studlyCase()->toString()  , 'MyString'); // true
+        $this->assertSame(Str::on('myString') ->studlyCase()->toString() , 'MyString') ; // true
+        $this->assertEquals(Str::on('my-string')->studlyCase()->toString()  , 'MyString'); // true
+        $this->assertEquals(Str::on('my string')->studlyCase()->toString()  , 'MyString'); // true
+        $this->assertEquals(Str::on('My String')->studlyCase()->toString()  , 'MyString'); // true
+
+    }
+
+
 
 }

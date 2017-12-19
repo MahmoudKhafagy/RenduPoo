@@ -90,5 +90,14 @@ class Str
            ->replace('--','-');
     }
 
+    // studlyCase Exercice 5
+    public function studlyCase()
+    {
+    return $this
+        ->replace('_',' ')
+        ->replace('-', ' ')
+        ->ucwords()
+        ->replace(' ', '');
+    }
 
 }
