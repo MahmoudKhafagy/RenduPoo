@@ -112,6 +112,15 @@ class Str
         ->replace(' ', '');
     }
 
+    // studlyCase Exercice 5.5
+    public function titleCase()
+    {
+        return $this
+            ->replace('_',' ')
+            ->replace('-', ' ')
+            ->ucwords()
+            ->replace(' ', '');
+    }
 
 
 }
