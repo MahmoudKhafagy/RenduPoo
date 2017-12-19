@@ -59,6 +59,16 @@ class StrTest extends TestCase
         $this->assertEquals(Str::on('My String')->SlugCase()->toString()  , 'my-string'); // true
     }
 
+    // kebabCase Exercice 4.5
+    public function testExo4_5()
+    {
+        $this->assertSame(Str::on('my_string')->kebabCase()->toString()  , 'my-string'); // true
+        $this->assertSame(Str::on('myString') ->kebabCase()->toString() , 'my-string') ; // true
+        $this->assertEquals(Str::on('my-string')->kebabCase()->toString()  , 'my-string'); // true
+        $this->assertEquals(Str::on('my string')->kebabCase()->toString()  , 'my-string'); // true
+        $this->assertEquals(Str::on('My String')->kebabCase()->toString()  , 'my-string'); // true
+    }
+
     // studlyCase Exercice 5
 
     public function testExo5()
@@ -71,6 +81,20 @@ class StrTest extends TestCase
 
     }
 
+    // Exercice 6
+
+    public function testExo6()
+    {
+        $str = Str::on('mY StrIng');
+        $str->camelCase()->toString() === 'myString'; // true
+        $str->snakeCase()->toString() === 'my_string'; // true
+        $str->studlyCase()->toString() === 'MyString'; // true
+        //$str->titleCase()->toString() === 'MyString'; // true
+        $str->slugCase()->toString() === 'my-string'; // true
+        $str->kebabCase()->toString() === 'my-string'; // true
+        $str->toString() === 'mY StrIng'; // true
+        (string) $str === 'mY StrIng'; // true
+    }
 
 
 }

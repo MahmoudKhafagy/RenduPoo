@@ -90,6 +90,18 @@ class Str
            ->replace('--','-');
     }
 
+    // kebabCase Exercice 4.5
+
+    public function kebabCase()
+    {
+        return $this
+            ->replace('_','-')
+            ->pregReplace('/(.)(?=[A-Z])/','$1-')
+            ->mbStrtolower()
+            ->replace(' ','-')
+            ->replace('--','-');
+    }
+
     // studlyCase Exercice 5
     public function studlyCase()
     {
@@ -99,5 +111,7 @@ class Str
         ->ucwords()
         ->replace(' ', '');
     }
+
+
 
 }
